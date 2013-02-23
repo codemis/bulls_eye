@@ -18,6 +18,7 @@
 		6612CFF916D83F8500EF7D66 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6612CFF816D83F8500EF7D66 /* Default-568h@2x.png */; };
 		6612CFFC16D83F8500EF7D66 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6612CFFA16D83F8500EF7D66 /* MainStoryboard.storyboard */; };
 		6612CFFF16D83F8500EF7D66 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6612CFFE16D83F8500EF7D66 /* ViewController.m */; };
+		6612D00616D8437B00EF7D66 /* screenshot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6612D00516D8437B00EF7D66 /* screenshot.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		6612CFFB16D83F8500EF7D66 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6612CFFD16D83F8500EF7D66 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6612CFFE16D83F8500EF7D66 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6612D00516D8437B00EF7D66 /* screenshot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = screenshot.jpg; path = ../../../../../Desktop/dummy_images/screenshot.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		6612CFE916D83F8500EF7D66 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6612D00516D8437B00EF7D66 /* screenshot.jpg */,
 				6612CFEA16D83F8500EF7D66 /* BullsEye-Info.plist */,
 				6612CFEB16D83F8500EF7D66 /* InfoPlist.strings */,
 				6612CFEE16D83F8500EF7D66 /* main.m */,
@@ -163,6 +166,7 @@
 				6612CFF716D83F8500EF7D66 /* Default@2x.png in Resources */,
 				6612CFF916D83F8500EF7D66 /* Default-568h@2x.png in Resources */,
 				6612CFFC16D83F8500EF7D66 /* MainStoryboard.storyboard in Resources */,
+				6612D00616D8437B00EF7D66 /* screenshot.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

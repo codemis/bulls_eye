@@ -1,8 +1,9 @@
 #import "ViewController.h"
 @interface ViewController () <UIAlertViewDelegate>
 @property (nonatomic) NSInteger currentValue;
-- (IBAction)hitMeButtonClicked:(id)sender;
+- (IBAction)hitMeButtonClicked;
 - (IBAction)sliderMoved:(UISlider *)sender;
+- (IBAction)startOver;
 @property (weak, nonatomic) IBOutlet UISlider *numberSlider;
 @property (nonatomic) NSInteger targetValue;
 @property (weak, nonatomic) IBOutlet UILabel *targetLabel;
@@ -13,27 +14,50 @@
 @end
 
 @implementation ViewController
+-(IBAction)home:(UIStoryboardSegue *)segue
+{
+}
+- (IBAction)startOver
+{
+    [self startNewGame];
+}
+-(void) startNewGame
+{
+    self.currentScore = 0;
+    self.currentRound = 0;
+    [self startNewRound];
+}
 -(void) startNewRound
 {
     self.currentRound ++;
-    self.roundLabel.text = [NSString stringWithFormat:@"%d", self.currentRound];
-    self.targetValue = 1+(arc4random() % 100);
-    self.targetLabel.text = [NSString stringWithFormat:@"%d", self.targetValue];
     self.numberSlider.value = 50;
+    self.targetValue = 1+(arc4random() % 100);
+    [self updateLabels];
 }
--(void) setCurrentScore:(NSInteger)newScore
+-(void) updateLabels
 {
-    _currentScore += newScore;
-    self.scoreLabel.text = [NSString stringWithFormat:@"%d", _currentScore];
+    self.roundLabel.text = [NSString stringWithFormat:@"%d", self.currentRound];
+    self.targetLabel.text = [NSString stringWithFormat:@"%d", self.targetValue];
+    self.scoreLabel.text = [NSString stringWithFormat:@"%d", self.currentScore];
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.currentValue = self.numberSlider.value;
-    self.currentScore = 0;
-    [self startNewRound];
+    UIImage *thumbImageNormal = [UIImage imageNamed:@"SliderThumb-Normal"];
+    [self.numberSlider setThumbImage:thumbImageNormal forState:UIControlStateNormal];
+    UIImage *thumbImageHighlighted =
+        [UIImage imageNamed:@"SliderThumb-Highlighted"];
+    [self.numberSlider setThumbImage:thumbImageHighlighted
+                            forState:UIControlStateHighlighted];
+    UIImage *trackLeftImage = [[UIImage imageNamed:@"SliderTrackLeft"] stretchableImageWithLeftCapWidth:14 topCapHeight:0];
+    [self.numberSlider setMinimumTrackImage:trackLeftImage
+                                   forState:UIControlStateNormal];
+    UIImage *trackRightImage = [[UIImage imageNamed:@"SliderTrackRight"] stretchableImageWithLeftCapWidth:14 topCapHeight:0];
+    [self.numberSlider setMaximumTrackImage:trackRightImage
+                                   forState:UIControlStateNormal];
+    [self startNewGame];
 }
-- (IBAction)hitMeButtonClicked:(id)sender
+- (IBAction)hitMeButtonClicked
 {
     int difference = abs(self.currentValue - self.targetValue);
     NSString *title;
@@ -47,7 +71,7 @@
         title = @"You Suck";
     }
     NSString *message = [NSString stringWithFormat:@"The value of the slider is: %d\n The target value is: %d\n The difference is: %d", self.currentValue, self.targetValue, difference];
-    self.currentScore = (100-difference);
+    self.currentScore += (100-difference);
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
                                                         message:message
                                                        delegate:self

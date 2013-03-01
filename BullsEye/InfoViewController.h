@@ -1,0 +1,3 @@
+@interface InfoViewController : UIViewController
+
+@end

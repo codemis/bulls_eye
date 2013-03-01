@@ -129,6 +129,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="numberSlider" destination="GuS-KG-3Nb" id="nh5-Is-Zqi"/>
+                        <outlet property="roundLabel" destination="utH-dn-hpF" id="omr-nU-TWm"/>
                         <outlet property="scoreLabel" destination="AIw-sF-Wts" id="tmD-7P-Shh"/>
                         <outlet property="targetLabel" destination="RSs-SZ-mSL" id="a4q-9C-FPk"/>
                     </connections>
@@ -147,6 +148,7 @@
                 <relationship kind="action" name="hitMeButtonClicked:"/>
                 <relationship kind="action" name="sliderMoved:" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="numberSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="roundLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scoreLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="targetLabel" candidateClass="UILabel"/>
             </relationships>
